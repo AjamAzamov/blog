@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block title %} Mediumish - Where good ideas find you. {% endblock title %}
+{% block content %}
+<div class="jumbotron jumbotron-fluid bg-info">
+    <div class="container text-white">
+        <h1 class="display-2">Welcome to the Mediumish</h1>
+        <p class="lead text-white">It's easy and free to post your thinking on any topic and connect with millions of
+            readers.</p>
+    </div>
+</div>
+
+<div class="container">
+    <!--Trending Posts-->
+    <section>
+        <div class="section-title">
+            <h2><span>Trending on Mediumish</span></h2>
+        </div>
+
+        <div class="row">
+            {% for article in object_list|slice:":3" %}
+            <div class="col-md-4 col-lg-4">
+              <div class="card h-100">
+                <img src="{{article.photo.url}}" class="card-img-top img-fluid" style="height: 250px;" alt="{{article.title}}">
+                <div class="card-body">
+                  <h3 class="card-title">{{article.title}}</h3>
+                  <p>{{article.summary}}</p>
+                  
+                </div>
+                <a href="{% url 'article_detail' article.pk %}" class="btn text-left text-info m-3">Read more ...</a>
+              </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+
+    <section>
+        <div class="section-title">
+            <h2><span>All Stories</span></h2>
+        </div>
+        
+        {% for article in object_list|slice:"3:" %}
+        
+        
+        
+
+        <div class="card mt-4">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="{{article.photo.url}}" class="img-fluid" style="height: 250px;" alt="{{article.title}}">
+                </div>
+                <div class="col-8">
+                    <div class="card-body p-4">
+                        <a class="card-title" href="{% url 'article_detail' article.pk %}">
+                            <h2 class="text-dark font-weight-bold p-2">{{article.title}}</h2>
+                        </a>
+                        <a class="card-card-subtitle mt-2 text-muted" href="{% url 'article_detail' article.pk %}">
+                            <h4>{{article.summary}}</h4>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer w-100 text-muted">
+               Author: {{article.author}} | {{article.data | date}}
+            </div>
+        </div>
+        {% endfor %}
+    </section>
+</div>
+
+{% endblock content %}

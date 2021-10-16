@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{%block content %}
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            {% if object.photo %}
+                <img class="card-img-top img-fluid" src="{{object.photo.url}}" alt="{{object.title}}">
+            {% endif %}
+            <h1 class="card-title p-4">{{object.title}}</h1>
+            <h6 class="card-subtitle mb-2 text-muted">Author: {{object.author}} | {{object.data|date}}</h6>
+            <p class="card-text">{{object.body | safe }}</p>
+            {% if object.author == request.user %}
+            <a href="{% url 'article_edit' article.pk %}">Edit </a>|
+            <a href="{% url 'article_delete' article.pk %}"> Delete </a>|
+            <a href="{% url 'myarticle_list' %}"> All Posts </a>
+            {% endif %}
+        </div>
+    </div>
+    <p></p>
+</div>
+{%endblock content%}
