@@ -459,13 +459,6 @@ section {
   -o-box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.2);
   -ms-box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.2);
 }
-
-/*//////////////////////////////////////////////////////////////////
-[ Responsive ]*/
-
-@media (max-width: 480px) {
-  .wrap-login100 {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
+.mt-55 {
+  margin-top: 55px;
 }
