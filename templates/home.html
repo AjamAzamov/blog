@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block title %} Mediumish - Where good ideas find you. {% endblock title %}
 {% block content %}
-<div class="jumbotron jumbotron-fluid bg-info">
+<div class="jumbotron text-center jumbotron-fluid bg-info mt-3">
     <div class="container text-white">
         <h1 class="display-2">Welcome to the Mediumish</h1>
         <p class="lead text-white">It's easy and free to post your thinking on any topic and connect with millions of
@@ -13,7 +13,7 @@
     <!--Trending Posts-->
     <section>
         <div class="section-title">
-            <h2><span>Trending on Mediumish</span></h2>
+            <h2 ><span>Trending on Mediumish</span></h2>
         </div>
 
         <div class="row">
@@ -48,18 +48,18 @@
 
         <div class="card mt-4 ">
             <div class="row">
-                <div class="col-md-4 col-6">
-                    <a href="{% url 'article_detail' article.pk %}">
-                        <img src="{{article.photo.url}}" class="img-fluid h-100 p-4 p-sm-0" alt="{{article.title}}">
+                <div class="col-md-4 col-4 my-auto">
+                    <a href="{% url 'article_detail' article.pk %}" class="my-auto">
+                        <img src="{{article.photo.url}}" class="img-fluid p-sm-0 my-auto" alt="{{article.title}}">
                     </a>
                 </div>
-                <div class="col-md-8 col-6">
+                <div class="col-md-8 col-8">
                     <div class="card-body p-1 p-sm-3 p-md-5">
-                        <a class="card-title" href="{% url 'article_detail' article.pk %}">
-                            <h2 class="text-dark font-weight-bold p-2">{{article.title}}</h2>
+                        <a class="card-title my-auto" href="{% url 'article_detail' article.pk %}">
+                            <h2 class="text-dark font-weight-bold ">{{article.title }}</h2>
                         </a>
                         <a class="card-card-subtitle mt-2 text-muted" href="{% url 'article_detail' article.pk %}">
-                            <h4>{{article.summary}}</h4>
+                            <h4>{{article.summary| truncatechars:70}}</h4>
                         </a>
                     </div>
                 </div>

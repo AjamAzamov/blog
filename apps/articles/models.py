@@ -8,7 +8,7 @@ class Article(models.Model):
     title = models.CharField(max_length=200)
     summary = models.CharField(max_length=200, blank=True)
     body = models.TextField()
-    photo = models.ImageField(upload_to='images/', blank=True)
+    photo = models.ImageField(upload_to='images/', blank=True, default="default.jpg")
     data = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(
         get_user_model(),
